@@ -18,7 +18,8 @@ sub open_default_browser {
 }
 
 my @keywords = ("big data", "data analyst", "data scientist", "machine learning", "deep learning", "quantitative analyst", "risk analyst",
-"matematica", "mathematics", "physics", "phd", "dottorato", "mathematica", "python", "actuarial", "R sas", "tensorflow", "scikit-learn", "perl", "statistica");
+"matematica", "mathematics", "physics", "phd", "dottorato", "mathematica", "python", "actuarial", "R sas", "tensorflow", "scikit-learn", "perl", "statistica",
+"statistics", "R python");
 
 my @locations = ("roma");
 
