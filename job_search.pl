@@ -26,7 +26,7 @@ my @locations = ("roma");
 my $basic_url = "https://it.indeed.com/offerte-lavoro\?";
 my $query = "q\=";
 my $loc = "\&l\=";
-my $end_url = "\&rs\=1";
+my $end_url = "\&fromage\=last";
 
 	
 
@@ -51,3 +51,4 @@ foreach my $location (@locations)
 
 
 ### end of code
+print "\nEND OF CODE\n";
