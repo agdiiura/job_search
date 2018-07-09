@@ -1,9 +1,20 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use pod::Usage;
 
+=pod
+ 
+=head1 DESCRIPTION
+ 
+A script for job searching using the indeed engine.
+ 
+=cut
 
-sub open_default_browser {
+#print "browser ".$^O;
+#exit;
+# TODO: fix open in WSL!!!
+open_default_browser {
 	my $url = shift;
 	my $platform = $^O;
 	my $cmd;
@@ -18,7 +29,7 @@ sub open_default_browser {
 }
 
 my @keywords = ("big data", "data analyst", "data scientist", "machine learning", "deep learning", "quantitative analyst", "risk analyst",
-"matematica", "mathematics", "physics", "phd", "dottorato", "mathematica", "python", "actuarial", "R sas", "tensorflow", "scikit-learn", "perl", "statistica",
+"matematica", "mathematics", "physics", "phd", "dottorato", "mathematica", "python", "actuarial", "R sas", "tensorflow", "scikit-learn", "sklearn", "perl", "statistica",
 "statistics", "R python", "data mining", "reti neurali", "neural network");
 
 my @locations = ("roma");
