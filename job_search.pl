@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use pod::Usage;
+use Pod::Usage;
 
 =pod
  
@@ -11,9 +11,9 @@ A script for job searching using the indeed engine.
  
 =cut
 
-#print "browser ".$^O;
-#exit;
+
 # TODO: fix open in WSL!!!
+
 open_default_browser {
 	my $url = shift;
 	my $platform = $^O;
@@ -22,11 +22,13 @@ open_default_browser {
 	elsif ($platform eq 'linux')   { $cmd = "x-www-browser \"$url\""; } # Linux
 	elsif ($platform eq 'MSWin32') { $cmd = "start $url";             } # Win95..Win7
 	if (defined $cmd) {
-    	system($cmd);
+	    	system($cmd);
   	} else {
-    	die "Can't locate default browser";
+    		die "Can't locate default browser";
   	}
 }
+
+my $verbose = 1;
 
 my @keywords = ("big data", "data analyst", "data scientist", "machine learning", "deep learning", "quantitative analyst", "risk analyst",
 "matematica", "mathematics", "physics", "phd", "dottorato", "mathematica", "python", "actuarial", "R sas", "tensorflow", "scikit-learn", "sklearn", "perl", "statistica",
@@ -55,7 +57,10 @@ foreach my $location (@locations)
 	chop($my_query);
 	
 	my $url = $basic_url.$my_query.$loc.$location.$end_url;
-
+	
+	if ($verbose > 0) {
+		print $url."\n";
+	};
 	open_default_browser($url);
 }
 }
