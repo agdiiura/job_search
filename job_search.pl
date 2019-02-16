@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use Pod::Usage;
+#use Browser::Open qw( open_browser );
 
 =pod
  
@@ -10,7 +11,6 @@ use Pod::Usage;
 A script for job searching using the indeed engine.
  
 =cut
-
 
 # TODO: fix open in WSL!!!
 
@@ -23,8 +23,8 @@ open_default_browser {
 	elsif ($platform eq 'MSWin32') { $cmd = "start $url";             } # Win95..Win7
 	if (defined $cmd) {
 	    	system($cmd);
-  	} else {
-    		die "Can't locate default browser";
+ 	} else {
+   		die "Can't locate default browser !$";
   	}
 }
 
@@ -61,7 +61,7 @@ foreach my $location (@locations)
 	if ($verbose > 0) {
 		print $url."\n";
 	};
-	open_default_browser($url);
+	#open_default_browser($url);
 }
 }
 
