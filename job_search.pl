@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+
 use strict;
 use warnings;
 use Pod::Usage;
@@ -15,7 +16,7 @@ use File::Slurp;
 
 	* verbose: (flag) option for verbose
 
-    example:
+    examples:
     $ perl job_search.pl
     $ perl job_search.pl --verbose
 
@@ -36,10 +37,10 @@ sub open_default_browser {
 
 	my $cmd;
 
-	if    ($platform eq 'darwin')  {
+	if ($platform eq 'darwin') {
 		$cmd = "open \"$url\""; # Mac OS X
 	}
-	elsif ($platform eq 'linux')   {
+	elsif ($platform eq 'linux') {
 		$cmd = "x-www-browser \"$url\"";  # Linux
 	}
 	elsif ($platform eq 'MSWin32') {
@@ -47,15 +48,14 @@ sub open_default_browser {
 	}
 
 	if (defined $cmd) {
-	    	system($cmd);
+	    system($cmd);
  	} else {
    		die "Can't locate default browser $!";
   	}
 }
 
-
+# load external files
 my @keywords = read_file("keys.conf", chomp => 1);
-
 my @locations = read_file("locations.conf", chomp => 1);
 
 my $basic_url = "https://it.indeed.com/offerte-lavoro\?";
@@ -64,10 +64,8 @@ my $loc = "\&l\=";
 my $end_url = "\&fromage\=last";
 
 sub main {
-	foreach my $key (@keywords)
-	{
-		foreach my $location (@locations)
-		{
+	foreach my $key (@keywords) {
+		foreach my $location (@locations) {
 			my @kwds = split ' ', $key;
 
 			my $my_query = $query;

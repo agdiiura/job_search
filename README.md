@@ -7,3 +7,7 @@ To run the code just type in a terminal
 ```bash
 perl job_search.pl
 ```
+
+Two files are needed to correctly run the app
+1. `locations.conf`: locations for the query
+2. `keys.conf`: query fields
