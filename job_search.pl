@@ -2,15 +2,31 @@
 use strict;
 use warnings;
 use Pod::Usage;
+use Getopt::Long;
+use File::Slurp;
+
 #use Browser::Open qw( open_browser );
 
 =pod
  
 =head1 DESCRIPTION
  
-A script for job searching using the indeed engine.
- 
+	A script for job searching using the indeed engine.
+
+	* verbose: (flag) option for verbose
+
+    example:
+    $ perl job_search.pl
+    $ perl job_search.pl --verbose
+
 =cut
+
+my $verbose = 0;
+
+GetOptions (
+    "f|verbose!" => \$verbose
+)
+or pod2usage( "Try '$0 --help' for more information." );
 
 # TODO: fix open in WSL!!!
 
@@ -37,16 +53,10 @@ sub open_default_browser {
   	}
 }
 
-my $verbose = 1;
 
-my @keywords = ("big data", "data analyst", "data scientist", "machine learning",
-	"deep learning", "quantitative analyst", "risk analyst",
-	"matematica", "mathematics", "physics", "phd", "dottorato", "mathematica",
-	"python", "actuarial", "R sas", "tensorflow", "scikit-learn", "sklearn",
-	"perl", "statistica", "statistics", "R python", "data mining",
-	"reti neurali", "neural network");
+my @keywords = read_file("keys.conf", chomp => 1);
 
-my @locations = ("roma");
+my @locations = read_file("locations.conf", chomp => 1);
 
 my $basic_url = "https://it.indeed.com/offerte-lavoro\?";
 my $query = "q\=";
@@ -79,5 +89,5 @@ sub main {
 }
 
 ### end of code
-main()
+main();	
 print "\nEND OF CODE\n";
