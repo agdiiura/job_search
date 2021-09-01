@@ -15,6 +15,8 @@ use File::Slurp;
 	A script for job searching using the indeed engine.
 
 	* verbose: (flag) option for verbose
+	* keys: (str) query keys configuration file
+	* locations: (str) query locations configuration file
 
     examples:
     $ perl job_search.pl
@@ -23,9 +25,13 @@ use File::Slurp;
 =cut
 
 my $verbose = 0;
+my $keys_file = "keys.conf";
+my $locations_file = "locations.conf";
 
 GetOptions (
-    "f|verbose!" => \$verbose
+    "f|verbose!"      => \$verbose,
+	"keys=s" 	      => \$keys_file,
+	"keyslocations=s" => \$locations_file,
 )
 or pod2usage( "Try '$0 --help' for more information." );
 
@@ -55,8 +61,8 @@ sub open_default_browser {
 }
 
 # load external files
-my @keywords = read_file("keys.conf", chomp => 1);
-my @locations = read_file("locations.conf", chomp => 1);
+my @keywords = read_file($keys_file, chomp => 1);
+my @locations = read_file($locations_file, chomp => 1);
 
 my $basic_url = "https://it.indeed.com/offerte-lavoro\?";
 my $query = "q\=";
