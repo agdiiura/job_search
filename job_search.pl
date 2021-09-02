@@ -9,14 +9,14 @@ use File::Slurp;
 #use Browser::Open qw( open_browser );
 
 =pod
- 
+
 =head1 DESCRIPTION
- 
+
 	A script for job searching using the indeed engine.
 
 	* verbose: (flag) option for verbose
-	* keys: (str) query keys configuration file
-	* locations: (str) query locations configuration file
+	* keys: (str) query keys configuration file, default 'keys.conf'
+	* locations: (str) query locations configuration file, default 'locations.conf'
 
     examples:
     $ perl job_search.pl
@@ -93,5 +93,5 @@ sub main {
 }
 
 ### end of code
-main();	
+main();
 print "\nEND OF CODE\n";
