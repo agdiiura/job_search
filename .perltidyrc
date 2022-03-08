@@ -1,0 +1,23 @@
+  --backup-and-modify-in-place
+  --cuddled-else
+  --continuation-indentation=4
+  --indent-columns=4
+  --maximum-line-length=78
+  #--line-up-parentheses
+  --opening-brace-always-on-right
+  --noopening-sub-brace-on-new-line #  -nsbl        # opening sub braces on right
+  --indent-closing-brace  # thought this was -ibc
+  --indent-block-comments #  -icb         # indent comment blocs
+  --vertical-tightness=0
+  --vertical-tightness-closing=0
+  --closing-token-indentation=3
+  --stack-opening-tokens
+  #--stack-closing-tokens
+  --space-terminal-semicolon
+  --space-for-semicolon
+
+  --brace-tightness=0
+  --paren-tightness=0
+  --block-brace-tightness=0
+  --square-bracket-tightness=0
+  --no-outdent-long-quotes
